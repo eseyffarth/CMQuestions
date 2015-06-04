@@ -43,7 +43,7 @@ def get_corpus_content(corpus_path):
 
 def tweet_something(questions):
     api = login()
-    output = random.sample(questions, 1)[0].strip()
+    output = random.sample(questions, 1)[0].strip()     # choose & clean up line before tweeting it
     if len(output) < 141:
         api.update_status(status=output)
         print output
@@ -52,4 +52,4 @@ corpus_path = "D:/Korpora/CornellMovieDialogsCorpus/movie_lines.txt"
 questions = get_corpus_content(corpus_path)
 while True:
     tweet_something(questions)
-    time.sleep(5)
+    time.sleep(1800)        # tweet once every half hour
